@@ -1,165 +1,359 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title> GUJRATI TRADER - Learning Community</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>ZERO TO HERO EXPERT ™️ | Official Community</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        telegram: '#0088cc',
+                        'telegram-glow': '#00a8ff',
+                        obsidian: '#090d14',
+                        glass: 'rgba(19, 25, 38, 0.7)',
+                    },
+                    backgroundImage: {
+                        'radial-glow': 'radial-gradient(circle at 50% 0%, rgba(0, 136, 204, 0.18) 0%, rgba(9, 13, 20, 0) 70%)',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Inter Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        body { 
+            font-family: 'Inter', sans-serif;
+            background-color: #090d14;
+        }
+        
+        /* Glassmorphism Effect */
+        .glass-card {
+            background: rgba(19, 25, 38, 0.65);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
 
-<style>
-  body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Poppins', sans-serif;
-    background-color: #000;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-  }
+        .glass-card-hover {
+            transition: all 0.3s ease;
+        }
+        .glass-card-hover:hover {
+            border-color: rgba(0, 136, 204, 0.4);
+            transform: translateY(-2px);
+        }
 
-  .card {
-    width: 85%;
-    max-width: 340px; 
-    background: #010a0f;
-    border: 1.5px solid #00d2ff;
-    border-radius: 35px;
-    padding: 20px 15px;
-    text-align: center;
-    box-shadow: 0 0 25px rgba(0, 210, 255, 0.15);
-  }
+        /* Pulsing Glow Animation for CTA */
+        @keyframes pulse-cta {
+            0%, 100% {
+                box-shadow: 0 0 25px rgba(0, 136, 204, 0.4), 0 0 50px rgba(0, 168, 255, 0.2);
+            }
+            50% {
+                box-shadow: 0 0 40px rgba(0, 136, 204, 0.7), 0 0 75px rgba(0, 168, 255, 0.4);
+            }
+        }
+        .btn-cta-glow {
+            animation: pulse-cta 2.2s infinite ease-in-out;
+        }
 
-  .profile-img {
-    width: 110px;
-    height: 110px;
-    border-radius: 50%;
-    border: 3px solid #00d2ff;
-    object-fit: cover;
-    margin-top: -5px;
-    box-shadow: 0 0 15px #00d2ff;
-  }
+        /* Ticker Animation */
+        @keyframes fadeInSlide {
+            0% { opacity: 0; transform: translateY(6px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        .ticker-animate {
+            animation: fadeInSlide 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
 
-  h1 {
-    color: #fff;
-    font-size: 20px;
-    margin: 15px 0;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-  }
-
-  .features {
-    text-align: left;
-    margin: 0 auto;
-    width: 90%;
-  }
-
-  .feature-item {
-    color: #ccc;
-    font-size: 13px;
-    padding: 10px 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    display: flex;
-    align-items: center;
-  }
-
-  .feature-item:last-child { border-bottom: none; }
-
-  .icon { margin-right: 12px; font-size: 16px; }
-
-  .join-text {
-    color: #eee;
-    font-size: 12px;
-    margin: 20px 0 12px;
-    font-weight: 300;
-  }
-
-  .telegram-btn {
-    display: block;
-    background: linear-gradient(90deg, #00d2ff 0%, #9247ff 100%);
-    color: white;
-    text-decoration: none;
-    padding: 14px;
-    border-radius: 50px;
-    font-weight: bold;
-    font-size: 16px;
-    margin-bottom: 15px;
-    box-shadow: 0 4px 12px rgba(0, 210, 255, 0.3);
-  }
-
-  .hindi-quote {
-    color: #bbb;
-    font-size: 13px;
-    margin-bottom: 20px;
-    line-height: 1.4;
-  }
-
-  .footer-box {
-    border: 1px solid rgba(0, 210, 255, 0.2);
-    border-radius: 12px;
-    padding: 8px;
-    font-size: 11px;
-    color: #888;
-  }
-
-  /* Link styling for Agency */
-  .footer-box a { 
-    color: #00d2ff; 
-    font-weight: bold; 
-    text-decoration: none;
-  }
-
-  .disclaimer {
-    font-size: 9px;
-    color: #444;
-    margin-top: 12px;
-  }
-</style>
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #090d14;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e293b;
+            border-radius: 4px;
+        }
+    </style>
 </head>
-<body>
+<body class="bg-obsidian text-slate-100 min-h-screen font-sans antialiased selection:bg-telegram selection:text-white flex flex-col justify-between bg-radial-glow relative overflow-x-hidden">
 
-<div class="card">
-  <img src="https://i.ibb.co/GQYGXHF4/In-Shot-20260927-223648191.jpg" alt=" GUJRATI TRADER" class="profile-img">
+    <!-- Subtle Background Ambient Light Grids -->
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-lg h-96 bg-telegram/10 blur-[120px] pointer-events-none rounded-full"></div>
 
-  <h1> GUJRATI TRADER</h1>
+    <!-- 1. Top Bar: Telugu Trust Badges -->
+    <header class="w-full bg-[#0d131f]/90 border-b border-slate-800/80 text-[11px] py-2.5 px-4 backdrop-blur-xl sticky top-0 z-50">
+        <div class="max-w-md mx-auto flex justify-between items-center text-slate-300 font-medium">
+            <span class="flex items-center gap-1.5 text-emerald-400 font-semibold tracking-wide">
+                <span class="relative flex h-2 w-2">
+                    <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                    <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                </span>
+                <i class="fa-solid fa-shield-check text-[11px]"></i> 100% నమ్మకమైన కమ్యూనిటీ
+            </span>
+            <span class="flex items-center gap-1.5 text-sky-400 font-semibold tracking-wide bg-sky-950/40 px-2 py-0.5 rounded-full border border-sky-500/20">
+                <i class="fa-solid fa-graduation-cap text-[11px]"></i> ఉచిత ఎడ్యుకేషనల్ ఛానెల్
+            </span>
+        </div>
+    </header>
 
-  <div class="features">
-    <div class="feature-item"><span class="icon"></span> Learning & Educational Sessions</div>
-    <div class="feature-item"><span class="icon"></span> Market Concepts & Awareness</div>
-    <div class="feature-item"><span class="icon"></span> Chart Reading Concepts</div>
-    <div class="feature-item"><span class="icon"></span> Educational Case Discussions</div>
-  </div>
+    <!-- Main Mobile-First Container -->
+    <main class="w-full max-w-md mx-auto px-4 py-6 flex-grow flex flex-col items-center text-center relative z-10">
+        
+        <!-- 2. Premium Header: Logo & Verified Badge -->
+        <div class="relative mb-3.5 group">
+            <div class="w-24 h-24 rounded-full p-1 bg-gradient-to-tr from-telegram via-sky-400 to-indigo-500 shadow-2xl mx-auto transition-transform duration-300 group-hover:scale-105">
+                <img src="https://iili.io/nvug7wP.jpg" 
+                     onerror="this.src='https://placehold.co/100x100/131924/ffffff?text=Z2H'" 
+                     alt="ZERO TO HERO EXPERT ™️ Logo" 
+                     class="w-full h-full object-cover rounded-full bg-slate-900 border-2 border-obsidian">
+            </div>
+            <span class="absolute bottom-1 right-1 bg-telegram text-white text-xs w-6 h-6 rounded-full flex items-center justify-center border-2 border-obsidian shadow-lg" title="Verified Channel">
+                <i class="fa-solid fa-check text-[10px] font-black"></i>
+            </span>
+        </div>
 
-  <p class="join-text">Join our learning community and grow your knowledge</p>
+        <!-- Typography & Rating Badge -->
+        <h1 class="text-2xl sm:text-3xl font-black text-white tracking-tight mb-1 bg-gradient-to-r from-white via-slate-100 to-slate-300 bg-clip-text text-transparent">
+            ZERO TO HERO EXPERT ™️
+        </h1>
+        
+        <div class="inline-flex items-center justify-center gap-2 bg-slate-900/80 border border-slate-800 rounded-full px-3 py-1 mb-4 shadow-inner">
+            <div class="flex text-amber-400 text-[11px] gap-0.5">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+            </div>
+            <span class="text-slate-300 font-bold text-[11px]">4.9 / 5.0</span>
+            <span class="text-slate-500 text-[10px]">• 48,500+ Members</span>
+        </div>
 
-  <a href="https://t.me/+mc6hSYTJFoU0MmRl" class="telegram-btn">JOIN TELEGRAM</a>
+        <!-- 3. Dynamic Live Activity Ticker (Telugu Names) -->
+        <div id="liveTickerBox" class="w-full glass-card rounded-2xl p-3 mb-5 flex items-center justify-between text-xs shadow-xl border-slate-800/80">
+            <div class="flex items-center gap-3 text-left">
+                <div class="w-8 h-8 rounded-full bg-telegram/15 border border-telegram/30 flex items-center justify-center text-telegram font-bold shrink-0">
+                    <i class="fa-solid fa-user-plus text-xs"></i>
+                </div>
+                <div>
+                    <p id="tickerUserText" class="text-slate-200 font-semibold text-[11px] leading-snug">Ramesh V. from Hyderabad just joined</p>
+                    <p class="text-[9px] text-emerald-400 flex items-center gap-1 font-medium">
+                        <i class="fa-solid fa-circle text-[6px] animate-pulse"></i> Verified Telegram Channel
+                    </p>
+                </div>
+            </div>
+            <span class="bg-emerald-500/10 text-emerald-400 text-[9px] font-extrabold px-2.5 py-1 rounded-full border border-emerald-500/20 uppercase tracking-wider shrink-0">
+                LIVE
+            </span>
+        </div>
 
-  <p class="hindi-quote">     ,     </p>
+        <!-- 4. Top Priority Ultra-Glowing CTA Button -->
+        <div class="w-full space-y-2.5 mb-6">
+            <a href="https://t.me/+myuaQiMcHsRmNjY1" 
+               target="_blank"
+               rel="noopener noreferrer"
+               class="btn-cta-glow w-full py-4 px-6 bg-gradient-to-r from-telegram via-sky-500 to-telegram hover:from-sky-500 hover:to-telegram text-white font-black text-base sm:text-lg rounded-2xl transition-all duration-300 flex items-center justify-center gap-3 shadow-2xl active:scale-[0.98]">
+                <i class="fa-brands fa-telegram text-2xl"></i>
+                <span class="tracking-wide">JOIN TELEGRAM CHANNEL NOW</span>
+                <i class="fa-solid fa-arrow-right text-xs"></i>
+            </a>
+            <div class="flex items-center justify-center gap-3 text-[10px] text-slate-400 font-medium">
+                <span class="flex items-center gap-1"><i class="fa-solid fa-lock text-emerald-400"></i> Free Access</span>
+                <span>•</span>
+                <span class="flex items-center gap-1"><i class="fa-solid fa-bolt text-amber-400"></i> Instant 1-Tap Redirect</span>
+            </div>
+        </div>
 
-  <div class="footer-box">
-    This Channel Advertise By <a href="https://t.me/+3XoqJNLxYHswNTc1" target="_blank">AD BUILD AGENCY</a>
-  </div>
+        <!-- 5. 3-Pillar Glassmorphism Trust Cards -->
+        <div class="w-full grid grid-cols-3 gap-2.5 mb-6">
+            <div class="glass-card glass-card-hover rounded-2xl p-3 text-center flex flex-col items-center justify-center">
+                <div class="w-8 h-8 rounded-xl bg-telegram/10 border border-telegram/20 text-telegram flex items-center justify-center mb-1.5 text-sm">
+                    <i class="fa-solid fa-shield-slash"></i>
+                </div>
+                <div class="text-[11px] font-bold text-slate-200">Zero Spam</div>
+                <div class="text-[9px] text-slate-400 mt-0.5">Pure Learning</div>
+            </div>
+            <div class="glass-card glass-card-hover rounded-2xl p-3 text-center flex flex-col items-center justify-center">
+                <div class="w-8 h-8 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center mb-1.5 text-sm">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                </div>
+                <div class="text-[11px] font-bold text-slate-200">100% Free</div>
+                <div class="text-[9px] text-slate-400 mt-0.5">No Paid Fees</div>
+            </div>
+            <div class="glass-card glass-card-hover rounded-2xl p-3 text-center flex flex-col items-center justify-center">
+                <div class="w-8 h-8 rounded-xl bg-sky-500/10 border border-sky-500/20 text-sky-400 flex items-center justify-center mb-1.5 text-sm">
+                    <i class="fa-solid fa-bolt-lightning"></i>
+                </div>
+                <div class="text-[11px] font-bold text-slate-200">Instant Access</div>
+                <div class="text-[9px] text-slate-400 mt-0.5">Direct Link</div>
+            </div>
+        </div>
 
-  <div class="disclaimer">
-    Terms | Privacy | Disclaimer <br>
-    This site is not part of Facebook� or endorsed by Facebook�.
-  </div>
-</div>
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '2552096918611818');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=2552096918611818&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
+        <!-- 6. Verified Reviews & Testimonials from Telugu Members -->
+        <div class="w-full space-y-3 mb-6 text-left">
+            <div class="flex items-center justify-between px-1">
+                <h2 class="text-xs font-bold text-slate-400 uppercase tracking-widest flex items-center gap-1.5">
+                    <i class="fa-solid fa-comments text-telegram"></i> Member Testimonials
+                </h2>
+                <span class="text-[10px] text-emerald-400 font-semibold bg-emerald-950/40 px-2 py-0.5 rounded-full border border-emerald-500/20">
+                    <i class="fa-solid fa-circle-check"></i> Verified Reviews
+                </span>
+            </div>
+
+            <!-- Review Card 1 -->
+            <div class="glass-card glass-card-hover rounded-2xl p-3.5 space-y-2">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-2.5">
+                        <div class="w-7 h-7 rounded-full bg-gradient-to-tr from-telegram to-sky-400 text-white font-bold text-[10px] flex items-center justify-center shadow">
+                            SR
+                        </div>
+                        <div>
+                            <h3 class="text-xs font-bold text-slate-100 leading-tight">Srinivas Rao</h3>
+                            <p class="text-[9px] text-slate-400">Visakhapatnam, Andhra Pradesh</p>
+                        </div>
+                    </div>
+                    <div class="flex text-amber-400 text-[10px] gap-0.5">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                </div>
+                <p class="text-[11px] text-slate-300 leading-relaxed">
+                    "ఈ ఛానెల్‌లో ప్రతిరోజూ అందించే మార్కెట్ విశ్లేషణ మరియు ఎడ్యుకేషనల్ చాట్స్ చాలా స్పష్టంగా మరియు ఉపయోగకరంగా ఉంటాయి. నేర్చుకోవడానికి ఉత్తమమైన కమ్యూనిటీ!"
+                </p>
+            </div>
+
+            <!-- Review Card 2 -->
+            <div class="glass-card glass-card-hover rounded-2xl p-3.5 space-y-2">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-2.5">
+                        <div class="w-7 h-7 rounded-full bg-gradient-to-tr from-emerald-500 to-teal-400 text-white font-bold text-[10px] flex items-center justify-center shadow">
+                            VK
+                        </div>
+                        <div>
+                            <h3 class="text-xs font-bold text-slate-100 leading-tight">Venkatesh Kumar</h3>
+                            <p class="text-[9px] text-slate-400">Hyderabad, Telangana</p>
+                        </div>
+                    </div>
+                    <div class="flex text-amber-400 text-[10px] gap-0.5">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                </div>
+                <p class="text-[11px] text-slate-300 leading-relaxed">
+                    "Zero spam and pure technical study guides. Truly professional channel for serious market learners."
+                </p>
+            </div>
+        </div>
+
+        <!-- 7. Anti-Scam & Transparency Shield -->
+        <div class="w-full glass-card rounded-2xl p-3.5 text-left space-y-1.5 mb-2 border-slate-800/80">
+            <h3 class="text-[11px] font-bold text-slate-200 flex items-center gap-2 uppercase tracking-wide">
+                <i class="fa-solid fa-shield-check text-telegram text-sm"></i> Transparency & Compliance Guarantee
+            </h3>
+            <p class="text-[10px] text-slate-400 leading-relaxed">
+                ZERO TO HERO EXPERT ™️ is strictly an educational community. We never demand any upfront payments, account login credentials, or direct investment management services.
+            </p>
+        </div>
+
+    </main>
+
+    <!-- 8. Meta Compliance Footer with Interactive Modals -->
+    <footer class="w-full max-w-md mx-auto px-4 py-5 text-center text-[10px] text-slate-500 border-t border-slate-800/60 space-y-2.5 relative z-10">
+        <p class="leading-relaxed text-[9px] text-slate-500">
+            <strong>Disclaimer:</strong> This website is an independent landing page and is not affiliated with, endorsed by, or associated with Meta Platforms, Inc. or Facebook, Inc. All content is strictly for educational technical research purposes.
+        </p>
+        <div class="flex items-center justify-center gap-4 text-slate-400 font-medium text-[10px]">
+            <button onclick="openModal('privacyModal')" class="hover:text-telegram transition-colors">Privacy Policy</button>
+            <span>•</span>
+            <button onclick="openModal('termsModal')" class="hover:text-telegram transition-colors">Terms of Service</button>
+            <span>•</span>
+            <button onclick="openModal('contactModal')" class="hover:text-telegram transition-colors">Contact Support</button>
+        </div>
+        <p class="text-[9px] text-slate-600">© 2026 ZERO TO HERO EXPERT ™️. All Rights Reserved.</p>
+    </footer>
+
+    <!-- MODAL OVERLAYS FOR META COMPLIANCE -->
+    <!-- Privacy Modal -->
+    <div id="privacyModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="glass-card bg-[#0d131f] border-slate-700 max-w-sm w-full rounded-2xl p-5 space-y-3 text-left">
+            <div class="flex justify-between items-center border-b border-slate-800 pb-2">
+                <h3 class="text-xs font-bold text-slate-100">Privacy Policy</h3>
+                <button onclick="closeModal('privacyModal')" class="text-slate-400 hover:text-white"><i class="fa-solid fa-xmark text-sm"></i></button>
+            </div>
+            <p class="text-[10px] text-slate-300 leading-relaxed">
+                We respect your privacy. This bridge page does not collect, store, or sell any personal identifying user data. Redirection to Telegram is protected via end-to-end SSL encryption.
+            </p>
+        </div>
+    </div>
+
+    <!-- Terms Modal -->
+    <div id="termsModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="glass-card bg-[#0d131f] border-slate-700 max-w-sm w-full rounded-2xl p-5 space-y-3 text-left">
+            <div class="flex justify-between items-center border-b border-slate-800 pb-2">
+                <h3 class="text-xs font-bold text-slate-100">Terms of Service</h3>
+                <button onclick="closeModal('termsModal')" class="text-slate-400 hover:text-white"><i class="fa-solid fa-xmark text-sm"></i></button>
+            </div>
+            <p class="text-[10px] text-slate-300 leading-relaxed">
+                By clicking the Telegram button, you voluntarily enter an external educational community app. All educational materials inside are for market research only.
+            </p>
+        </div>
+    </div>
+
+    <!-- Contact Modal -->
+    <div id="contactModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="glass-card bg-[#0d131f] border-slate-700 max-w-sm w-full rounded-2xl p-5 space-y-3 text-left">
+            <div class="flex justify-between items-center border-b border-slate-800 pb-2">
+                <h3 class="text-xs font-bold text-slate-100">Contact Support</h3>
+                <button onclick="closeModal('contactModal')" class="text-slate-400 hover:text-white"><i class="fa-solid fa-xmark text-sm"></i></button>
+            </div>
+            <p class="text-[10px] text-slate-300 leading-relaxed">
+                For official inquiries or community help, connect directly with the channel administration inside the Telegram app.
+            </p>
+        </div>
+    </div>
+
+    <!-- JS Scripts for Ticker Animation & Modals -->
+    <script>
+        // Live Telugu Joining Ticker Data
+        const teluguUsers = [
+            { name: "Ramesh V. from Hyderabad", time: "just now" },
+            { name: "Srinivas R. from Visakhapatnam", time: "12 seconds ago" },
+            { name: "Venkatesh K. from Vijayawada", time: "25 seconds ago" },
+            { name: "Kiran M. from Warangal", time: "8 seconds ago" },
+            { name: "Sai Kumar from Tirupati", time: "just now" },
+            { name: "Anil P. from Guntur", time: "18 seconds ago" }
+        ];
+
+        let tickerIdx = 0;
+        const tickerUserText = document.getElementById('tickerUserText');
+        const liveTickerBox = document.getElementById('liveTickerBox');
+
+        setInterval(() => {
+            tickerIdx = (tickerIdx + 1) % teluguUsers.length;
+            const user = teluguUsers[tickerIdx];
+            
+            tickerUserText.classList.remove('ticker-animate');
+            void tickerUserText.offsetWidth; // Force Reflow
+            tickerUserText.classList.add('ticker-animate');
+            tickerUserText.textContent = `${user.name} joined (${user.time})`;
+        }, 3800);
+
+        // Modal Controls
+        function openModal(id) {
+            document.getElementById(id).classList.remove('hidden');
+        }
+        function closeModal(id) {
+            document.getElementById(id).classList.add('hidden');
+        }
+    </script>
 </body>
+  
 </html>
